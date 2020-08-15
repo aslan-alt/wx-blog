@@ -1,0 +1,3 @@
+<!--pages/demo/demo.wxml-->
+<text>xxxxx</text>
+<Son money="{{money}}" bindUpdateMoney="add" />
