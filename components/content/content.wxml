@@ -1,0 +1,16 @@
+<!--components/content.wxml-->
+<view wx:for="{{blogData && blogData.data.data}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <view class="article">
+      <view class="avatar">
+        <image class="img" mode="widthFix" src="{{item.user.avatar}}" alt="avatar"></image>
+        <text class="author">{{item.user.username}}</text>
+      </view>
+      <view class="content">
+        <view class="contentHead">
+          <text class="title">{{item.title}}</text>
+          <text class="dateBack">{{item.createdAt}}</text>
+        </view>
+        <text class="text">{{item.description===""?"该用户没有填写内容":item.description}}</text>
+      </view>
+    </view>
+  </view>

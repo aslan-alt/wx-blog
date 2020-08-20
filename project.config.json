@@ -12,7 +12,7 @@
     "minified": true,
     "newFeature": false,
     "coverView": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -37,7 +37,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.12.1",
   "appid": "wx34b690c6544efd64",
-  "projectname": "mini-01",
+  "projectname": "Blog",
   "debugOptions": {
     "hidedInDevtools": []
   },

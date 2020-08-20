@@ -1,21 +1,18 @@
-// pages/demo/demo.js
+// pages/login/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    money:2
+
   },
-  add(e){
-    console.log(e.detail)
-    this.setData({money:this.data.money+e.detail})
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  
   },
 
   /**

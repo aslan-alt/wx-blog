@@ -1,43 +1,39 @@
 {
   "pages": [
-    "pages/demo/demo",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/user/index",
+    "pages/login/index"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#0094ff",
-    "navigationBarTitleText": "我的应用",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#27A899",
+    "navigationBarTitleText": "Blog",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true,
-    "backgroundColor": "#423"
+    "backgroundColor": "#27A899"
   },
-  "tabBar": {
-    "list": [
+  "tabBar":{
+    "color": "black",
+    "selectedColor": "#27A899",
+    "backgroundColor": "#ffffff",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list":[
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "./icon/success.png",
-        "selectedIconPath": "./icon/success.png"
+        "text": "首頁",
+        "iconPath": "./icon/home.png",
+        "selectedIconPath": "./icon/home-selected.png"
       },
       {
-        "pagePath": "pages/demo/demo",
-        "text": "demo",
-        "iconPath": "icon/loading.png",
-        "selectedIconPath": "icon/loading.png"
-      },
-      {
-        "pagePath": "pages/logs/logs",
-        "text": "logs",
-        "iconPath": "icon/loading.png",
-        "selectedIconPath": "icon/loading.png"
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "./icon/user.png",
+        "selectedIconPath": "./icon/user-selected.png"
       }
-    ],
-    "color": "#0094ff",
-    "selectedColor": "#ff8400",
-    "backgroundColor": "#ff5533",
-    "position": "top"
+    ]
   },
-  "style": "v2",
+  
+  
   "sitemapLocation": "sitemap.json"
 }

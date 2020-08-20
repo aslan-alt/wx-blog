@@ -1,0 +1,5 @@
+<!--components/bottom-notice/bottom-notice.wxml-->
+<view wx:if="{{notice}}" class="notice">
+    <image class="img" src="http://wx3.sinaimg.cn/large/ceeb653ely1fk5df8uldnj20a00a0jrw.jpg" mode="widthFix"></image>
+    <text>小可爱，已经到底了哦</text>
+</view>

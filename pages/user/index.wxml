@@ -1,0 +1,5 @@
+<!--pages/user/index.wxml-->
+<view>
+  <text>pages/user/index.wxml</text>
+  <button open-type="getPhoneNumber" bindgetuserinfo="getPhoneNumber">ffff</button>
+</view>
