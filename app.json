@@ -2,7 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/user/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/register/index",
+    "pages/detail/index",
+    "pages/edit/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,13 +15,13 @@
     "enablePullDownRefresh": true,
     "backgroundColor": "#27A899"
   },
-  "tabBar":{
+  "tabBar": {
     "color": "black",
     "selectedColor": "#27A899",
     "backgroundColor": "#ffffff",
     "position": "bottom",
     "borderStyle": "black",
-    "list":[
+    "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首頁",
@@ -33,7 +36,5 @@
       }
     ]
   },
-  
-  
   "sitemapLocation": "sitemap.json"
 }

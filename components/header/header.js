@@ -18,6 +18,23 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    toLogin(){
+      wx.navigateTo({
+        url: '/pages/login/index',
+        success: function(res) {
+          // 通过eventChannel向被打开页面传送数据
+          console.log('ffff')
+        }
+      })
+    },
+    toRegister(){
+      wx.navigateTo({
+        url: '/pages/register/index',
+        success: function(res) {
+          // 通过eventChannel向被打开页面传送数据
+          console.log('xxxxx')
+        }
+      })
+    }
   }
 })
