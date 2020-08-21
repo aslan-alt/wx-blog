@@ -5,9 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    username:'',
+    password:''
   },
-
+  changePassWord(e){
+    this.setData({password:e.detail.value})
+  },
+  changeUserName(e){
+    this.setData({username:e.detail.value})
+  },
+  checkUserInput(){
+    const {username,password} = this.data
+    if(username==="" ||password===""){
+      console.log('你啥都没输入呀')
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

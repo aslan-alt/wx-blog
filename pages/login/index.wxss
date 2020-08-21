@@ -1,1 +1,31 @@
 /* pages/login/index.wxss */
+.loginPage{
+  padding: 20px 30px;
+}
+.username{
+  margin-bottom:10px ;
+}
+.password{
+  margin-bottom:10px ;
+}
+.text{
+  color: #27A899;
+}
+input{
+  margin-top:4px ;
+  border: 1px solid rgba(39, 168, 153, 0.5);
+  border-radius: 4px;
+  padding: 8px 8px;
+  font-size: 14px;
+ 
+}
+.navigator{
+  color: rgb(128, 128, 128);
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+button{
+  background: #27A899;
+  color: white;
+}
