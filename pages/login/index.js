@@ -1,78 +1,39 @@
 // pages/login/index.js
+import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify';
+import auth from '../../utils/auth'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     username:'',
-    password:''
+    password:'',
+    loading:false
   },
-  changePassWord(e){
-    this.setData({password:e.detail.value})
-  },
-  changeUserName(e){
+  getUserName(e){
     this.setData({username:e.detail.value})
+  },
+  getPassWord(e){
+    this.setData({password:e.detail.value})
   },
   checkUserInput(){
     const {username,password} = this.data
     if(username==="" ||password===""){
-      console.log('你啥都没输入呀')
+      this.createNotice({message: '用户名或密码不能为空哦'})
+    }else if(password.length < 6){
+      this.createNotice({message: '密码不能少于6位哦'})
+    }else{
+      this.setData({loading:true})
+      auth.login({username,password}).then(res=>{
+        if(res.data.status === "fail"){
+          this.createNotice({message: `${res.data.msg}哦`})
+          this.setData({loading:false})
+        }else if(res.data.status === "ok"){
+          this.createNotice({message:res.data.msg,color:"green"})
+        }else{
+          this.createNotice({message:"网络异常"})
+        }
+      })
     }
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  createNotice({message,color="red",duration=3000}){
+    Notify({ message,background: '#ffff',color,duration});
   }
 })

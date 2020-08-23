@@ -33,13 +33,19 @@
   padding-top: 8px;
 }
 .title{
+  max-width: 7em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   font-size:18px;
-  font-weight:600;
+  font-size:16px;
+  font-weight:700; 
 }
 .dateBack{
   font-size:12px;
   padding-left:10px;
-  
 }
 .text{
   max-width: 23em;

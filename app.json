@@ -11,7 +11,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#27A899",
     "navigationBarTitleText": "Blog",
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
     "backgroundColor": "#27A899"
   },
