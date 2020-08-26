@@ -29,7 +29,7 @@ input{
   justify-content: center;
   padding: 10px 0;
 }
-.commit{
+button{
   background: #27A899;
   color: white;
   height: 46px;
@@ -37,6 +37,3 @@ input{
   justify-content: center;
   align-items: center;
 }
-
-
-

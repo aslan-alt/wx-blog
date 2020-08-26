@@ -1,0 +1,59 @@
+/* components/slider/slider.wxss */
+
+.canvas {
+  display: flex;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.canvasWrapper {
+  position: relative;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.block {
+  position: absolute;
+  top: 0;
+  left: 0px;
+}
+.progressBar {
+  width: 310px;
+  height: 47px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid #27a899;
+  border-radius: 30px;
+  overflow: hidden;
+  color: #27a899;
+}
+.slider {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #27a899;
+  height: 47px;
+  width: 47px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px; 
+}
+.slider:focus {
+  outline: none;
+}
+.track {
+  position: absolute;
+  left: 0;
+  background: #27a899;
+  /* border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px; */
+}
+.img{
+  border-radius: 50%;
+  width:250px ;
+  
+}

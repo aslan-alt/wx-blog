@@ -2,7 +2,7 @@
 <view>
  <!-- <text wx:if="{{userInfo.data.isLogin}}">登录</text>
  <text wx:elif="{{!userInfo.data.isLogin}}" class="title">您还未登录哦</text> -->
- <Header userInfo="{{userInfo}}"/>
+ <Header />
 
  <Content blogData="{{blogData}}" />
   <view wx:if="{{loading}}" class="loading"> <van-loading type="spinner" color="#27A899" /></view>

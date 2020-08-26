@@ -1,0 +1,16 @@
+<!--components/slider/slider.wxml-->
+<view class="container">
+    
+    <view class="canvasWrapper" >
+      <canvas type="2d" class="canvas" width="310" height="155" id="myCanvas"></canvas>
+      <canvas type="2d" class="canvas block" width="310" height="155" id="myBlock" ></canvas>
+    </view>
+    <view class="progressBar" ref="progressBar">
+      <text>向右滑动滑块填充拼图</text>
+      <view ref="track" class="track"></view>
+      <!-- @mousedown="clickDown" @mousemove="move" @mouseup="clickUp" @mouseleave="clearPosition" -->
+      <button class="slider" bindtouchstart="clickDown" bindtouchmove="move" bindtouchend="clickUp" bindtouchcancel="clearPosition" >
+        <image class="img" mode="widthFix" src="../../icon/right.png" alt="slider"></image>
+      </button>
+    </view>
+  </view>
