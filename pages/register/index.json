@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-notify": "@vant/weapp/notify/index",
+    "van-loading": "@vant/weapp/loading/index"
+  },
+  "navigationBarTitleText": "注册账号",
+  "navigationBarTextStyle": "white"
 }

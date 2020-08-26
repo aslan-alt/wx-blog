@@ -1,20 +1,22 @@
 //index.js
 //获取应用实例
-import auth from '../../utils/auth';
+
 import blog from '../../utils/blog';
-import {formatTime} from "../../utils/helper"
+import {formatTime,updateUserInfo} from "../../utils/helper"
+
 Page({
   data:{
     loading:false,
     notice:false,
     userInfo:null,
-    blogData:null,
-    maxPage:null,
-    list:[{id:1,name:"aslan"},{id:2,name:"xxxx"}]
-   
+    blogData:null
   },
   onLoad(){
     this.initData()
+  },
+  onShow(){
+    console.log('zhixing')
+    this.setData({userInfo:wx.getStorageSync("userInfo")})
   },
   onReachBottom(){//到底部后触发
     const page = parseInt(this.data.blogData.data.page)+1//当前页数+1 = 下一页
@@ -27,14 +29,15 @@ Page({
   },
   initData(){
     let userInfo = wx.getStorageSync("userInfo")
-    if(userInfo === ""){
-      auth.getInfo().then(res=>{
-        wx.setStorageSync("userInfo",res)
-        this.setData({userInfo:res,maxPage:res.data.totalPage})
-      })
-    }else{
-      this.setData({userInfo:wx.getStorageSync("userInfo")})
-    }
+    updateUserInfo(this)
+    this.setData({userInfo:wx.getStorageSync("userInfo")})
+    console.log(this.data.userInfo && this.data.userInfo.data.isLogin)
+    // if(userInfo === ""){
+     
+    // }else{
+
+      
+    // }
     this.updateBlogData()
   },
   updateBlogData({page=1}={page:1}){

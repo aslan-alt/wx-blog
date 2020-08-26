@@ -1,5 +1,5 @@
 /* components/header.wxss */
-.container{
+.notLoggedIn{
   background: #27A899;
   display: flex;
   flex-direction: column;
@@ -35,3 +35,24 @@
 .button:last-child{
   margin-left:8px ;
 }
+.logged{
+  border: 1px solid red;
+  background: #27A899;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.title-logged{
+  color:white;
+  font-size: 32px;
+  font-weight:600;
+}
+.img{
+  width: 46px;
+}
+.create{
+  border: 1px solid black;
+  width: 46px;
+  margin-right:5px ;
+}
+

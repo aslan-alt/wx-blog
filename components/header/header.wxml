@@ -1,9 +1,18 @@
 <!--components/header.wxml-->
-<view class="container">
-  <view class="title">LET'S SHARE</view>
-  <view class="text">精品博客汇聚</view>
-  <view class="buttonWrapper">
-    <button class="button" bindtap="toLogin">立即登录</button>
-    <button class="button" bindtap="toRegister">立即注册</button>
+<view class="head">
+  <view class="notLoggedIn" wx:if="{{userInfo && !userInfo.data.isLogin}}">
+    <view class="title">LET'S SHARE</view>
+    <view class="text">精品博客汇聚</view>
+    <view class="buttonWrapper">
+      <button class="button" bindtap="toLogin">立即登录</button>
+      <button class="button" bindtap="toRegister">立即注册</button>
+    </view>
+  </view>
+  <view wx:else class="logged">
+    <text class="title-logged">LET'S SHARE</text>
+    <view>
+      <image class="create"  mode="widthFix"  src="../../icon/create.png"  alt="avatar"></image>
+      <image class="img" mode="widthFix" src="../../icon/create.png" alt="avatar"></image>
+    </view>
   </view>
 </view>

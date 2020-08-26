@@ -1,6 +1,12 @@
 /* pages/login/index.wxss */
 .loginPage{
+  display:flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.loginForm{
   padding: 20px 30px;
+  margin-top: 10%;
 }
 .username{
   margin-bottom:10px ;
@@ -17,7 +23,6 @@ input{
   border-radius: 4px;
   padding: 8px 8px;
   font-size: 14px;
- 
 }
 .navigator{
   color: rgb(128, 128, 128);
@@ -28,4 +33,8 @@ input{
 button{
   background: #27A899;
   color: white;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,15 +1,22 @@
 <!--pages/login/index.wxml-->
 <view class="loginPage">
-<view class="username">
-  <text class="text">用户名</text>
-  <input bindinput="changeUserName" type="text" placeholder="用户名"  />
-</view>
-<view class="password">
-  <text class="text">密码</text>
-  <input bindinput="changePassWord" type="password" placeholder="密码"/>
-</view>
-<button bindtap="checkUserInput">立即登录</button>
-<navigator class="navigator" url="/pages/register/index" hover-class="none">
-  没有账号?<text class="text">立即注册</text>
-</navigator>
+  <van-notify id="van-notify" />
+  <view class="loginForm">
+    <view class="username">
+      <text class="text">用户名</text>
+      <input bindinput="getUserName" type="text" placeholder="用户名"  />
+    </view>
+    <view class="password">
+      <text class="text">密码</text>
+      <input bindinput="getPassWord" type="password" placeholder="密码"/>
+    </view>
+    
+    <button bindtap="checkUserInput">
+      <text wx:if="{{!loading}}">立即登录</text>
+      <van-loading wx:else type="spinner" color="white" />
+    </button>
+    <navigator class="navigator" url="/pages/register/index" hover-class="none">
+      没有账号?<text class="text">立即注册</text>
+    </navigator>
+  </view>
 </view>

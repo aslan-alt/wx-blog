@@ -5,13 +5,14 @@
     "pages/login/index",
     "pages/register/index",
     "pages/detail/index",
-    "pages/edit/index"
+    "pages/edit/index",
+    "pages/createBlog/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#27A899",
     "navigationBarTitleText": "Blog",
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
     "backgroundColor": "#27A899"
   },
