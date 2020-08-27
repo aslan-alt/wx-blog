@@ -1,0 +1,4 @@
+<!--components/my-button/my-button.wxml-->
+<button>
+  <slot></slot>
+</button>

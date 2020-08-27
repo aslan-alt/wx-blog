@@ -1,0 +1,12 @@
+<!--components/userInfo-item/userInfo-item.wxml-->
+<view class="userInfo">
+  <view class="item">
+    <view class="titleContainer">
+      <slot name="title"></slot>
+    </view>
+    <view class="valueContainer">
+      <slot name="value"></slot>
+    </view>
+  </view>
+  <image class="item-right"  mode="widthFix"  src="../../icon/item-right.png"  alt="avatar"></image>
+</view>

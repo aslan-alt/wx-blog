@@ -7,6 +7,17 @@ Component({
     userInfo:{
       type:Object,
       value:null
+    },
+    wxUserInfo:{
+      type:Object,
+      value:null
+    }
+  },
+  lifetimes: {
+    ready: function() {
+      // 在组件实例进入页面节点树时执行
+      console.log(this.properties.wxUserInfo)
+      console.log(this.properties.userInfo)
     }
   },
 
@@ -30,6 +41,7 @@ Component({
         }
       })
     },
+   
     toRegister(){
       wx.navigateTo({
         url: '/pages/register/index',
@@ -37,6 +49,21 @@ Component({
           // 通过eventChannel向被打开页面传送数据
           console.log('xxxxx')
         }
+      })
+    },
+    toCreate(){
+      console.log('执行了呀呀呀')
+      wx.navigateTo({
+        url: '/pages/createBlog/index',
+        success: function(res) {
+          // 通过eventChannel向被打开页面传送数据
+          console.log('跳转create')
+        }
+      })
+    },
+    toUser(){
+      wx.switchTab({
+        url: '/pages/user/index'
       })
     }
   }

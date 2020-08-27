@@ -1,13 +1,10 @@
-// components/content.js
+// components/my-button/my-button.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    blogData:{
-      type:Object,
-      value:{}
-    }
+
   },
 
   /**

@@ -1,15 +1,14 @@
-// components/content.js
+// components/userInfo-item/userInfo-item.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    blogData:{
-      type:Object,
-      value:{}
-    }
-  },
 
+  },
+  options: {
+    multipleSlots: true
+  },
   /**
    * 组件的初始数据
    */

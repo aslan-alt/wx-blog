@@ -36,23 +36,29 @@
   margin-left:8px ;
 }
 .logged{
-  border: 1px solid red;
   background: #27A899;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
 }
+.logged-left{
+  display: flex;
+ align-items: center;
+}
+
 .title-logged{
   color:white;
   font-size: 32px;
   font-weight:600;
 }
-.img{
-  width: 46px;
+.avatar{
+  width: 38px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 .create{
-  border: 1px solid black;
-  width: 46px;
-  margin-right:5px ;
+  width: 32px;
+  margin-left:10px ;
 }
+
 

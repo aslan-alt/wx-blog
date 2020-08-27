@@ -1,1 +1,11 @@
 /* pages/user/index.wxss */
+
+.logined{
+  padding: 0 10px;
+}
+.items{
+  padding-bottom: 16px;
+}
+
+
+

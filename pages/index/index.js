@@ -9,14 +9,15 @@ Page({
     loading:false,
     notice:false,
     userInfo:null,
-    blogData:null
+    blogData:null,
+    wxUserInfo:null
   },
   onLoad(){
     this.initData()
   },
   onShow(){
-    console.log('zhixing')
     this.setData({userInfo:wx.getStorageSync("userInfo")})
+    this.setData({wxUserInfo:wx.getStorageSync("wxUserInfo")})
   },
   onReachBottom(){//到底部后触发
     const page = parseInt(this.data.blogData.data.page)+1//当前页数+1 = 下一页
@@ -28,15 +29,12 @@ Page({
     }
   },
   initData(){
-    let userInfo = wx.getStorageSync("userInfo")
+    // wx.getStorageSync("userInfo")
     updateUserInfo(this)
     this.setData({userInfo:wx.getStorageSync("userInfo")})
     console.log(this.data.userInfo && this.data.userInfo.data.isLogin)
     // if(userInfo === ""){
-     
     // }else{
-
-      
     // }
     this.updateBlogData()
   },

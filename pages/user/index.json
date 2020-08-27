@@ -1,5 +1,9 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "userInfo-item":"../../components/userInfo-item/userInfo-item",
+    "my-button":"../../components/my-button/my-button",
+    "van-popup":"@vant/weapp/popup/index"
+  },
   "navigationBarTitleText": "个人信息",
   "navigationBarTextStyle": "white"
 }

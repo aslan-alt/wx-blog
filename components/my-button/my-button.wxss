@@ -1,0 +1,9 @@
+/* components/my-button/my-button.wxss */
+button{
+  background: #27A899;
+  color: white;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

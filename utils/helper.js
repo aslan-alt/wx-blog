@@ -29,8 +29,7 @@ function formatTime(array){
 function updateUserInfo(_this){
   auth.getInfo().then(res=>{
     wx.setStorageSync("userInfo",res)
-    _this.setData({userInfo:res,maxPage:res.data.totalPage})
-    console.log(_this)
+    _this.setData({userInfo:res})
   })
 }
 export {
