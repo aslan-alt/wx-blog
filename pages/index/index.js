@@ -2,7 +2,8 @@
 //获取应用实例
 
 import blog from '../../utils/blog';
-import {formatTime,updateUserInfo} from "../../utils/helper"
+import {formatTime} from "../../utils/helper"
+import auth from '../../utils/auth'
 
 Page({
   data:{
@@ -16,7 +17,8 @@ Page({
     this.initData()
   },
   onShow(){
-    this.setData({userInfo:wx.getStorageSync("userInfo")})
+    const userInfo = wx.getStorageSync("userInfo")
+    this.setData({userInfo})
     this.setData({wxUserInfo:wx.getStorageSync("wxUserInfo")})
   },
   onReachBottom(){//到底部后触发
@@ -29,13 +31,11 @@ Page({
     }
   },
   initData(){
-    // wx.getStorageSync("userInfo")
-    updateUserInfo(this)
+    auth.getInfo().then(res=>{
+      wx.setStorageSync("userInfo",res)
+    })
     this.setData({userInfo:wx.getStorageSync("userInfo")})
-    console.log(this.data.userInfo && this.data.userInfo.data.isLogin)
-    // if(userInfo === ""){
-    // }else{
-    // }
+    // console.log(this.data.userInfo && this.data.userInfo.data.isLogin)
     this.updateBlogData()
   },
   updateBlogData({page=1}={page:1}){

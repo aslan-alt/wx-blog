@@ -1,4 +1,4 @@
-import auth from './auth'
+
 function calculateTime(datsStr){
   let dateObj = typeof datsStr === 'object' ? datsStr : new Date(datsStr)
   let time = dateObj.getTime()
@@ -26,14 +26,8 @@ function formatTime(array){
     return item
   })
 }
-function updateUserInfo(_this){
-  auth.getInfo().then(res=>{
-    wx.setStorageSync("userInfo",res)
-    _this.setData({userInfo:res})
-  })
-}
+
 export {
   calculateTime,
-  formatTime,
-  updateUserInfo
+  formatTime
 }

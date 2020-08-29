@@ -2,24 +2,25 @@
 <view>
   <view wx:if="{{userInfo.data.isLogin}}" class="logined">
     <view class="items">
-      <userInfo-item>
+      <userInfo-item bindtap="notice">
         <text slot="title">头像</text>
         <image slot="value" mode="widthFix" style="width:48px" src="{{wxUserInfo.detail.userInfo.avatarUrl}}"  alt="avatar"></image>
       </userInfo-item>
-      <userInfo-item>
+      <userInfo-item bindtap="notice">
         <text slot="title">昵称</text>
         <text slot="value">{{wxUserInfo.detail.userInfo.nickName}}</text>
       </userInfo-item>
-      <userInfo-item>
+      <userInfo-item bindtap="notice">
         <text slot="title">性别</text>
         <text slot="value">{{wxUserInfo.detail.userInfo.gender === 1 ? "男":"女"}}</text>
       </userInfo-item>
-      <userInfo-item>
+      <userInfo-item bindtap="toUserBlogs">
         <text slot="title">全部文章</text>
-        <text slot="value">{{10}}篇</text>
+        <text slot="value">{{userBlog.data.total}}篇</text>
       </userInfo-item>
     </view>
     <my-button bindtap="logout">注销登录</my-button>
+    <van-toast id="van-toast" />
   </view>
   <view wx:else>
     <van-popup

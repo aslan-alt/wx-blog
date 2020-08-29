@@ -1,7 +1,7 @@
 // pages/register/index.js
 import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify';
 import auth from '../../utils/auth'
-import {updateUserInfo} from "../../utils/helper"
+
 Page({
   data: {
     username: '',
@@ -39,9 +39,12 @@ Page({
         return
       } else if (res.data.status === "ok") {
         this.createNotice({ message: res.data.msg })
-        updateUserInfo(this)
-        wx.setStorageSync("wxUserInfo",e)
-        wx.navigateBack({delta: 10})
+        auth.getInfo().then(res=>{
+          wx.setStorageSync("userInfo",res)
+          wx.setStorageSync("wxUserInfo",e)
+          wx.navigateBack({delta: 10})
+        })
+       
         return
       } else {
         this.createNotice({ message: "网络异常" })

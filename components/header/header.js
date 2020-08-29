@@ -16,8 +16,8 @@ Component({
   lifetimes: {
     ready: function() {
       // 在组件实例进入页面节点树时执行
-      console.log(this.properties.wxUserInfo)
-      console.log(this.properties.userInfo)
+      // console.log(this.properties.wxUserInfo)
+      // console.log(this.properties.userInfo)
     }
   },
 

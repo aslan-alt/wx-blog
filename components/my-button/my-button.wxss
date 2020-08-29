@@ -1,5 +1,5 @@
 /* components/my-button/my-button.wxss */
-button{
+.myButton{
   background: #27A899;
   color: white;
   height: 46px;
