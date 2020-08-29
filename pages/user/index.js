@@ -1,7 +1,8 @@
 // pages/user/index.js
 import auth from '../../utils/auth'
 import blog from '../../utils/blog'
-import Toast  from '../../miniprogram_npm/@vant/weapp/toast/toast';
+import Toast  from '../../miniprogram_npm/@vant/weapp/toast/toast'
+import {formatTime} from '../../utils/helper'
 
 const app = getApp();
 Page({
@@ -18,6 +19,8 @@ Page({
     const {userInfo} = this.data
     if(userInfo.data && userInfo.data.isLogin){
       blog.getBlogsByUserId(userInfo.data.data.id).then(res=>{
+        formatTime(res.data.data)
+        wx.setStorageSync('userBlogs',res)
         this.setData({userBlog:res})
       })
     }else{
