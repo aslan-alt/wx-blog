@@ -1,1 +1,51 @@
 /* pages/createBlog/index.wxss */
+
+.createBlog{
+  padding: 0 16px;
+  
+  display: flex;
+  flex-direction: column;
+}
+.title{
+  margin: auto;
+  font-size: 22px;
+  padding: 8px 16px;
+  font-weight:600;
+}
+.section{
+  margin-bottom:6px ;
+}
+input{
+  margin-top:6px;
+  border: 1px solid rgba(39, 168, 153, 0.5);
+  border-radius: 4px;
+  padding: 8px 4px;
+  font-size: 14px;
+}
+textarea{
+  padding: 0 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-top:6px;
+  border: 1px solid rgba(39, 168, 153, 0.5);
+  width: auto;
+}
+.descriptionInput{
+  padding-top:14px;
+  padding-bottom:14px;
+}
+.contentInput{
+  min-height: 30vh;
+}
+.switchWrapper{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.switchButton{
+ 
+  display: flex;
+  align-items: center;
+  margin-left: 6px;
+}

@@ -1,2 +1,25 @@
 <!--pages/createBlog/index.wxml-->
-<text>pages/createBlog/index.wxml</text>
+<view class="createBlog">
+  <text class="title">创建文章</text>
+  <view class="section">
+    <text class="articleTitle">文章标题</text>
+    <input class="articleInput" type="text" value="{{newBlog.title}}" bindinput="changeTitle" placeholder="限30个字哦"/>
+  </view>
+  <view class="section">
+    <text class="description">内容简介</text>
+    <textarea class="descriptionInput" value="{{newBlog.description}}" bindblur="changeDescription"  auto-height placeholder="限30个字哦" />
+  </view>
+  <view class="section">
+    <text class="content">文章内容</text>
+    <textarea class="contentInput" value="{{newBlog.content}}" bindblur="changeContent" auto-height />
+  </view>
+  <view class="section switchWrapper">
+    <text>是否展示到首页</text>
+    <van-switch class="switchButton" checked="{{ newBlog.atIndex }}" bind:change="changeAtIndex" 
+    active-color="#27A899"
+    inactive-color="#fff"
+    size="24px"
+    />
+  </view>
+  <my-button bindtap="submit">确定</my-button>
+</view>

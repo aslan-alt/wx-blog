@@ -17,8 +17,7 @@ Page({
     this.initData()
   },
   onShow(){
-    const userInfo = wx.getStorageSync("userInfo")
-    this.setData({userInfo})
+    this.setData({userInfo:wx.getStorageSync("userInfo")})
     this.setData({wxUserInfo:wx.getStorageSync("wxUserInfo")})
   },
   onReachBottom(){//到底部后触发
@@ -30,12 +29,17 @@ Page({
       this.setData({loading:false,notice:true})
     }
   },
+  onPullDownRefresh(){
+    blog.getBlogs({page}).then(res=>{
+      formatTime(res.data.data)
+      this.setData({blogData:res})
+    })
+  },
   initData(){
     auth.getInfo().then(res=>{
       wx.setStorageSync("userInfo",res)
+      this.setData({userInfo:wx.getStorageSync("userInfo")})
     })
-    this.setData({userInfo:wx.getStorageSync("userInfo")})
-    // console.log(this.data.userInfo && this.data.userInfo.data.isLogin)
     this.updateBlogData()
   },
   updateBlogData({page=1}={page:1}){
@@ -44,10 +48,11 @@ Page({
       if(!this.data.blogData){
         this.setData({blogData:res})
       }else{
-        //怪就怪 wx 的data真tm难用  打出的数据太丑了
+        // wx 的data真难用  打出的数据太丑了
         //这一行的目的是把请求来的新数据添加到原先的数据后面，
         const Obj = {blogData:{...res,data:{...res.data,data:[...this.data.blogData.data.data,...res.data.data]}}}
         this.setData(Obj)
+        
       }
     })
   }

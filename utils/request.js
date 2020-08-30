@@ -2,7 +2,6 @@
 let baseURL = 'https://blog-server.hunger-valley.com'
 
 let key = 'cookie'
-let cookie = wx.getStorageSync(key);
 
 export default function request(url, type = 'GET', data = {}) {
     return new Promise((resolve, reject) => {
@@ -11,7 +10,7 @@ export default function request(url, type = 'GET', data = {}) {
             method: type,
             header: {
                 "Content-Type": "application/x-www-form-urlencoded",
-                "Cookie": cookie
+                "Cookie": wx.getStorageSync(key)
             },
             success: (res)=>{
                 if (res.header) {

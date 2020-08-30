@@ -14,7 +14,7 @@
       </view>
     </view>
     <view class="actions">
-      <text class="action" bindtap="edit">編輯</text>
-      <text class="action" bindtap="remove">刪除</text>
+      <text class="action" bindtap="edit" data-blogData="{{item}}">編輯</text>
+      <text class="action" bindtap="remove" data-blogData="{{item}}">刪除</text>
     </view>
 </view>

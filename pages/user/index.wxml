@@ -16,7 +16,7 @@
       </userInfo-item>
       <userInfo-item bindtap="toUserBlogs">
         <text slot="title">全部文章</text>
-        <text slot="value">{{userBlog.data.total}}篇</text>
+        <text slot="value">{{articleNum ? articleNum : '0'}}篇</text>
       </userInfo-item>
     </view>
     <my-button bindtap="logout">注销登录</my-button>

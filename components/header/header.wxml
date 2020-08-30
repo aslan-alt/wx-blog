@@ -11,7 +11,10 @@
   <view wx:else class="logged">
     <view class="logged-left"> 
       <text class="title-logged">LET'S SHARE</text>
-      <image class="create" bindtap="toCreate" mode="widthFix"  src="../../icon/create.png"  alt="avatar"></image>
+      <view class="create"  bindtap="toCreate">
+        <image class="createIcon" mode="widthFix"  src="../../icon/create.png"  alt="avatar"></image>
+        <text class="createText">Add</text>
+      </view>
     </view>
     <image bindtap="toUser" class="avatar" mode="widthFix" src="{{wxUserInfo.detail.userInfo.avatarUrl}}"  alt="avatar"></image>
    

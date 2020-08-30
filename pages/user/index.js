@@ -9,7 +9,7 @@ Page({
   data:{
     wxUserInfo:null,
     userInfo:null,
-    userBlog:null,
+    articleNum:null,
     show:false,
     popipStyle:"height: 20%;display:flex;justify-content: center; align-items: center;color:#27A899"
   },
@@ -17,15 +17,19 @@ Page({
     this.setData({wxUserInfo:wx.getStorageSync("wxUserInfo")})
     this.setData({userInfo:wx.getStorageSync("userInfo")})
     const {userInfo} = this.data
+    let articleNum = 0
     if(userInfo.data && userInfo.data.isLogin){
-      blog.getBlogsByUserId(userInfo.data.data.id).then(res=>{
-        formatTime(res.data.data)
-        wx.setStorageSync('userBlogs',res)
-        this.setData({userBlog:res})
+      const userId = userInfo.data.data.id 
+      blog.getBlogsByUserId(userId,{atIndex:false}).then(res=>{
+        articleNum += res.data.total
+        blog.getBlogsByUserId(userId,{atIndex:true}).then(res=>{
+          articleNum += res.data.total
+          this.setData({articleNum})
+        })
+        // articleNum =
       })
     }else{
       this.setData({show:true})
-      console.log('weidengl')
     }
   },
   logout(){
