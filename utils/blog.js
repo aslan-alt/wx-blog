@@ -27,8 +27,8 @@ export default {
   getDetail({blogId}){
     return request(URL.GET_DETAIL.replace(":blogId",blogId))
   },
-  updateBlog({blogId},{title,content,description,atIndex}){
-    return request(URL.UPDATE.replace(":blogId",blogId),"PATCH",{title,content,description,atIndex})
+  updateBlog({ blogId }, { title, content, description, atIndex }) {
+    return request(URL.UPDATE.replace(':blogId', blogId), 'PATCH', { title, content, description, atIndex })
   },
   deleteBlog({blogId}){
     return request(URL.DELETE.replace(":blogId",blogId),"DELETE")

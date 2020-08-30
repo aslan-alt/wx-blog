@@ -1,6 +1,6 @@
 <!--components/content.wxml-->
 <view wx:for="{{blogData && blogData.data.data}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-    <view class="article">
+    <view class="article" bindtap="toDetail" data-blogid="{{item}}">
       <view class="avatar">
         <image class="img" mode="widthFix" src="{{item.user.avatar}}" alt="avatar"></image>
         <text class="author">{{item.user.username}}</text>

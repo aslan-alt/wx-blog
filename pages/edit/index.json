@@ -1,5 +1,9 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-switch": "@vant/weapp/switch/index",
+    "my-button":"../../components/my-button/my-button",
+    "van-toast": "@vant/weapp/toast/index"
+  },
   "navigationBarTitleText": "编辑文章",
   "navigationBarTextStyle": "white"
 }

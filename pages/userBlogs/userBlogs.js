@@ -4,46 +4,57 @@ import {formatTime} from '../../utils/helper'
 
 Page({
   data: {
-    blogData:null,
-    userInfo:null,
     wxUserInfo:null,
     blogsArray:[],
     userId:null
   },
   onLoad: function (options) {
-    const userInfo = wx.getStorageSync("userInfo")
+    const userId = wx.getStorageSync("userInfo").data.data.id
     this.setData({wxUserInfo:wx.getStorageSync("wxUserInfo")})
-    this.setData({userInfo})
-    this.updateBlogData(userInfo.data.data.id)
+    this.setData({userId})
+    this.updateBlogData(userId)
   },
+ 
   onReachBottom(){
-    const currentPage = this.data.blogData.data.page
-    const totalPage = this.data.blogData.data.totalPage
-    if(currentPage < totalPage){
-      this.updateBlogData(this.data.userInfo.data.data.id,{page:currentPage+1})
-    }
+    wx.showToast({
+      title: '当前页面数据未完善',
+      icon: 'success',
+      duration: 2000
+    })
   },
   edit(e){
-    const {blogdata} = e.target.dataset
-    console.log(blogdata)
+    const blogId = e.target.dataset.currentblog.id
+   console.log(blogId)
+    wx.navigateTo({
+      url: `/pages/edit/index?blogId=${blogId}`,
+    })
   },
   remove(e){
     const _this = this
-    const blogId = e.target.dataset.blogdata.id
+    const blogId = e.target.dataset.currentblog.id
     wx.showModal({
       title: '删除提示',
       content: '删除无法恢复，您确定要删除吗?',
       success (res) {
         if (res.confirm) {
           blog.deleteBlog({blogId}).then(res=>{
-            wx.showToast({
-              title: res.data.msg,
-              icon: 'success',
-              duration: 2000
-            })
-            const {blogData} = _this.data
-            let removeAfterBlogs =  [...blogData.data.data].filter(item=>item.id !== blogId)
-            _this.setData({blogData:{...blogData,data:{...blogData.data,data:[...removeAfterBlogs]}}}) 
+            wx.showToast({title: res.data.msg,icon: 'success',duration: 2000})
+            const {blogsArray} = _this.data
+            let removeAfterBlogs
+            if(blogsArray.length === 1){
+              _this.setData({blogsArray:[]})
+              wx.showToast({title: '没有数据了',icon: 'success',duration: 3000,
+                success(){
+                  let timeId = setTimeout(()=>{
+                    wx.switchTab({url: '/pages/index/index'})
+                    clearTimeout(timeId)
+                  },3000)
+                }
+              })
+            }else{
+              removeAfterBlogs =  [...blogsArray].filter(item=>item.id !== blogId)
+              _this.setData({blogsArray:removeAfterBlogs})
+            }
           })
         }
       }
@@ -51,17 +62,16 @@ Page({
   },
   updateBlogData(userId,{page=1}={page:1}){
     blog.getBlogsByUserId(userId,{page,atIndex:false}).then(res=>{
-      formatTime(res.data.data)
-      console.log(this.data.blogData)
-      if(!this.data.blogData){
-        this.setData({blogData:res})
-      }else{
-        // wx 的data真难用  打出的数据太丑了
-        //这一行的目的是把请求来的新数据添加到原先的数据后面，
-        const Obj = {blogData:{...res,data:{...res.data,data:[...this.data.blogData.data.data,...res.data.data]}}}
-        console.log(Obj)
-        this.setData(Obj)
+      let array = []
+      if(res.data.data.length > 0 ){
+        array = [...formatTime(res.data.data)]
       }
+      blog.getBlogsByUserId(userId,{page,atIndex:true}).then(res=>{
+        if(res.data.data.length > 0 ){
+          array = [...array,...formatTime(res.data.data)]
+        }
+        this.setData({blogsArray:array})
+      })
     })
   }
 })

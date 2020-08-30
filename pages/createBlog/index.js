@@ -34,19 +34,16 @@ Page({
     this.setData({ newBlog:{...newBlog,atIndex:detail} });
   },
   submit(){
-    blog.createBlog(this.data.newBlog).then(res=>{
+    const data = this.data.newBlog
+    console.log(data)
+    blog.createBlog(data).then(res=>{
+      const blogId = res.data.data.id
       wx.showToast({title: '成功',icon: 'success',duration: 2000})
       let timeId = setTimeout(()=>{
         wx.navigateTo({
-          url: '/pages/detail/index',
-          events: {
-            getNewBolog: function(data) {}
-          },
-          success: function(wxResponse) {
-            wxResponse.eventChannel.emit('getNewBolog', { data: res })
-            clearTimeout(timeId)
-          }
+          url: `/pages/detail/index?blogId=${blogId}`,
         })
+        clearTimeout(timeId)
       },1000)
       
     })

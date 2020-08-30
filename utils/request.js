@@ -1,6 +1,5 @@
 
 let baseURL = 'https://blog-server.hunger-valley.com'
-
 let key = 'cookie'
 
 export default function request(url, type = 'GET', data = {}) {

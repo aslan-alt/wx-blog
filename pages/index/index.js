@@ -17,6 +17,7 @@ Page({
     this.initData()
   },
   onShow(){
+    this.refresh()
     this.setData({userInfo:wx.getStorageSync("userInfo")})
     this.setData({wxUserInfo:wx.getStorageSync("wxUserInfo")})
   },
@@ -30,10 +31,7 @@ Page({
     }
   },
   onPullDownRefresh(){
-    blog.getBlogs({page}).then(res=>{
-      formatTime(res.data.data)
-      this.setData({blogData:res})
-    })
+    this.refresh()
   },
   initData(){
     auth.getInfo().then(res=>{
@@ -52,8 +50,13 @@ Page({
         //这一行的目的是把请求来的新数据添加到原先的数据后面，
         const Obj = {blogData:{...res,data:{...res.data,data:[...this.data.blogData.data.data,...res.data.data]}}}
         this.setData(Obj)
-        
       }
+    })
+  },
+  refresh(){
+    blog.getBlogs().then(res=>{
+      formatTime(res.data.data)
+      this.setData({blogData:res})
     })
   }
 })

@@ -1,12 +1,11 @@
 {
   "usingComponents": {
     "Header":"../../components/header/header",
-    "Content":"../../components/content/content",
+    "Content":"../../components/index-content/index-content",
     "bottom-notice":"../../components/bottom-notice/bottom-notice",
     "van-loading": "@vant/weapp/loading/index"
 },
   "navigationBarTitleText": "Blog",
   "navigationBarTextStyle":"white",
   "navigationBarBackgroundColor":"#27A899"
-
 }

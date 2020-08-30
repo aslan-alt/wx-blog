@@ -75,3 +75,9 @@
  
   padding:8px 16px;
 }
+.notData{
+  padding: 0 10px;
+}
+.text{
+  text-align: center;
+}

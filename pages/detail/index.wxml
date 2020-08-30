@@ -1,2 +1,21 @@
 <!--pages/detail/index.wxml-->
-<text>pages/detail/index.wxml</text>
+
+<view class="articleWarpper">
+   
+  <view class="articleHead">
+    <view class="avatar">
+      <image class="img" mode="widthFix" src="{{wxUserInfo.detail.userInfo.avatarUrl}}" alt="avatar"></image>
+      <text class="author">{{wxUserInfo.detail.userInfo.nickName}}</text>
+    </view>
+  </view>
+  <view class="title">
+        <text class="titleText">{{blogData.title}}</text>
+    </view>
+    <text class="dateBack">{{blogData.createdAt}}发布</text>
+  <view class="articleContent">
+    <view class="description">简介: <text >{{blogData.description===""?"该用户没有填写内容":blogData.description}}</text></view>
+    <view >
+     <text style="font-size:16px"> {{blogData.content}}</text>
+    </view>
+  </view>
+</view>

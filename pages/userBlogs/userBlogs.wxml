@@ -1,5 +1,6 @@
 <!--pages/userBlogs/userBlogs.wxml-->
-<view class="wrapper" wx:for="{{blogData && blogData.data.data}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+<view>
+  <view wx:if="{{blogsArray}}" class="wrapper" wx:for="{{blogsArray}}" wx:for-item="item" wx:for-index="index" wx:key="index">
     <view class="article">
       <view class="avatar">
         <image class="img" mode="widthFix" src="{{wxUserInfo.detail.userInfo.avatarUrl}}" alt="avatar"></image>
@@ -14,7 +15,8 @@
       </view>
     </view>
     <view class="actions">
-      <text class="action" bindtap="edit" data-blogData="{{item}}">編輯</text>
-      <text class="action" bindtap="remove" data-blogData="{{item}}">刪除</text>
+      <text class="action" bindtap="edit" data-currentBlog="{{item}}">編輯</text>
+      <text class="action" bindtap="remove" data-currentBlog="{{item}}">刪除</text>
     </view>
+  </view>
 </view>

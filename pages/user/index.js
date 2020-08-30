@@ -2,20 +2,21 @@
 import auth from '../../utils/auth'
 import blog from '../../utils/blog'
 import Toast  from '../../miniprogram_npm/@vant/weapp/toast/toast'
-import {formatTime} from '../../utils/helper'
+
 
 const app = getApp();
 Page({
   data:{
     wxUserInfo:null,
     userInfo:null,
-    articleNum:null,
+    articleNum:0,
     show:false,
     popipStyle:"height: 20%;display:flex;justify-content: center; align-items: center;color:#27A899"
   },
   onShow(){
     this.setData({wxUserInfo:wx.getStorageSync("wxUserInfo")})
     this.setData({userInfo:wx.getStorageSync("userInfo")})
+   this.loading(0)
     const {userInfo} = this.data
     let articleNum = 0
     if(userInfo.data && userInfo.data.isLogin){
@@ -25,8 +26,8 @@ Page({
         blog.getBlogsByUserId(userId,{atIndex:true}).then(res=>{
           articleNum += res.data.total
           this.setData({articleNum})
+          this.loading(1)
         })
-        // articleNum =
       })
     }else{
       this.setData({show:true})
@@ -34,7 +35,6 @@ Page({
   },
   logout(){
     auth.logout()
-    console.log('退出登录')
     wx.switchTab({
       url: '/pages/index/index'
     })
@@ -46,9 +46,26 @@ Page({
     this.setData({show:false})
   },
   toUserBlogs(){
-    wx.navigateTo({
-      url: '/pages/userBlogs/userBlogs',
-    })
+    if(this.data.articleNum > 0){
+      wx.navigateTo({
+        url: '/pages/userBlogs/userBlogs',
+      })
+    }else{
+      Toast({
+        message:"还没有文章哦，快去创建吧",
+        position:"top",
+        duration:2300
+      });
+    }
+    
+  },
+  loading(duration){
+     Toast.loading({
+      message: '加载中...',
+      forbidClick: true,
+      loadingType: 'spinner',
+      duration
+    });
   },
   notice(){
     Toast({

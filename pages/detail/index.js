@@ -1,24 +1,21 @@
 // pages/detail/index.js
+import blog from '../../utils/blog'
+import {formatTime} from "../../utils/helper"
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    blogData:null,
+    wxUserInfo:null
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (option) {
-      const eventChannel = this.getOpenerEventChannel()
-      // eventChannel.emit('someEvent', {data: 'test'});
-      // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
-      eventChannel.on('getNewBolog', function(data) {
-        console.log(data)
-      })
-
+  onLoad: function ({blogId}) {
+    
+    blog.getDetail({blogId}).then(res=>{
+      console.log(res)
+      const data = [JSON.parse(JSON.stringify(res.data.data))]
+      console.log(data)
+      formatTime(data)
+      this.setData({blogData:data[0],wxUserInfo:wx.getStorageSync('wxUserInfo')})
+    })
   },
 
   /**
