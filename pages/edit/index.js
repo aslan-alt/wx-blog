@@ -41,12 +41,10 @@ Page({
       content: '微信不支持PATCH,需后端改接口或者其他方案,这里只做展示，试试删除功能吧?',
       success (res) {
         if (res.confirm) {
-          console.log('用户点击确定')
           wx.navigateBack({
             delta: 1
           })          
         } else if (res.cancel) {
-          console.log('用户点击取消')
           let tiemId = setTimeout(()=>{
             wx.switchTab({
               url: '/pages/index/index'

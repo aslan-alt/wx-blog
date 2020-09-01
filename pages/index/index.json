@@ -3,7 +3,8 @@
     "Header":"../../components/header/header",
     "Content":"../../components/index-content/index-content",
     "bottom-notice":"../../components/bottom-notice/bottom-notice",
-    "van-loading": "@vant/weapp/loading/index"
+    "van-loading": "@vant/weapp/loading/index",
+    "my-button":"../../components/my-button/my-button"
 },
   "navigationBarTitleText": "Blog",
   "navigationBarTextStyle":"white",

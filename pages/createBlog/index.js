@@ -35,10 +35,9 @@ Page({
   },
   submit(){
     const data = this.data.newBlog
-    console.log(data)
     blog.createBlog(data).then(res=>{
       const blogId = res.data.data.id
-      wx.showToast({title: '成功',icon: 'success',duration: 2000})
+      wx.showToast({title: '创建成功',icon: 'success',duration: 2000})
       let timeId = setTimeout(()=>{
         wx.navigateTo({
           url: `/pages/detail/index?blogId=${blogId}`,

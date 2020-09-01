@@ -11,14 +11,14 @@ Page({
     notice:false,
     userInfo:null,
     blogData:null,
-    wxUserInfo:null
+    wxUserInfo:null,
+    visible:false
   },
   onLoad(){
     this.initData()
   },
   onShow(){
-    this.refresh()
-    this.setData({userInfo:wx.getStorageSync("userInfo")})
+    this.initData()
     this.setData({wxUserInfo:wx.getStorageSync("wxUserInfo")})
   },
   onReachBottom(){//到底部后触发
@@ -53,10 +53,7 @@ Page({
       }
     })
   },
-  refresh(){
-    blog.getBlogs().then(res=>{
-      formatTime(res.data.data)
-      this.setData({blogData:res})
-    })
+  changeVisible(){
+    this.setData({visible:true})
   }
 })

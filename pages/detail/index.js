@@ -8,11 +8,8 @@ Page({
     wxUserInfo:null
   },
   onLoad: function ({blogId}) {
-    
     blog.getDetail({blogId}).then(res=>{
-      console.log(res)
       const data = [JSON.parse(JSON.stringify(res.data.data))]
-      console.log(data)
       formatTime(data)
       this.setData({blogData:data[0],wxUserInfo:wx.getStorageSync('wxUserInfo')})
     })

@@ -57,7 +57,6 @@ Component({
       if ((errorDisdance <= 2 && this.currentDistance <= this.goalPosition) || (errorDisdance >= -2 && this.currentDistance >= this.goalPosition)) {
         this.startMove = false
         this.status = true
-        console.log('通过验证')
       } else {
         this.initPosition()
       }

@@ -1,7 +1,16 @@
 <!--index.wxml-->
 <view>
- <Header userInfo="{{userInfo}}" wxUserInfo="{{wxUserInfo}}" />
- <Content blogData="{{blogData}}" />
-  <view wx:if="{{loading}}" class="loading"> <van-loading type="spinner" color="#27A899" /></view>
-  <bottom-notice notice="{{notice}}" />
+  <view wx:if="{{visible}}">
+    <Header userInfo="{{userInfo}}" wxUserInfo="{{wxUserInfo}}" />
+    <Content blogData="{{blogData}}" />
+    <view wx:if="{{loading}}" class="loading"> <van-loading type="spinner" color="#27A899" /></view>
+    <bottom-notice notice="{{notice}}" />
+  </view>
+  <view wx:else class="wrapper">
+    <view class="statement">
+      <view class="statementTitle">声明</view>
+      <text class="statementText" decode="{{true}}" >&nbsp;&nbsp;&nbsp;&nbsp;此小程序仅做个人项目展示，如发布与项目无关的信息，本人有权进行删除。因小程序(沃尔斯特)带来的一切法律责任本人承担,与微信小程序官方无关</text>
+    </view>
+    <my-button bindtap="changeVisible">确定</my-button>
+  </view>
 </view>

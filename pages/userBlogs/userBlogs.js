@@ -24,7 +24,7 @@ Page({
   },
   edit(e){
     const blogId = e.target.dataset.currentblog.id
-   console.log(blogId)
+
     wx.navigateTo({
       url: `/pages/edit/index?blogId=${blogId}`,
     })
@@ -43,7 +43,7 @@ Page({
             let removeAfterBlogs
             if(blogsArray.length === 1){
               _this.setData({blogsArray:[]})
-              wx.showToast({title: '没有数据了',icon: 'success',duration: 3000,
+              wx.showToast({title: '删除成功',icon: 'success',duration: 3000,
                 success(){
                   let timeId = setTimeout(()=>{
                     wx.switchTab({url: '/pages/index/index'})

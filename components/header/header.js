@@ -13,16 +13,10 @@ Component({
       value:null
     }
   },
-  lifetimes: {
-    ready: function() {
-      
-    }
-  },
+  
 
  
-  data: {
-
-  },
+ 
 
   /**
    * 组件的方法列表
@@ -31,20 +25,14 @@ Component({
     toLogin(){
       wx.navigateTo({
         url: '/pages/login/index',
-        success: function(res) {
-          // 通过eventChannel向被打开页面传送数据
-          console.log('ffff')
-        }
       })
     },
-   
     toRegister(){
       wx.navigateTo({
         url: '/pages/register/index',
       })
     },
     toCreate(){
-      console.log('执行了呀呀呀')
       wx.navigateTo({
         url: '/pages/createBlog/index',
       })

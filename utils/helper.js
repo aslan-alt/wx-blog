@@ -22,7 +22,9 @@ function calculateTime(datsStr){
 }
 function formatTime(array){
   return array.map(item=>{//小程序模板插值无法使用函数且wxs有很多语法限制，所以直接格式化请求的数据，
-    item.createdAt = calculateTime(item.createdAt)
+    if(item){
+      item.createdAt =  calculateTime(item.createdAt)
+    }
     return item
   })
 }

@@ -34,10 +34,21 @@ Page({
     }
   },
   logout(){
-    auth.logout()
-    wx.switchTab({
-      url: '/pages/index/index'
+    auth.logout().then(res=>{
+      console.log(res)
+      wx.showToast({
+        title: '注销成功',
+        icon: 'success',
+        duration: 2000
+      })
+      let timeId = setTimeout(()=>{
+        wx.switchTab({
+          url: '/pages/index/index'
+        })
+        clearTimeout(timeId)
+      },2000)
     })
+    
   },
   onClose(){
     wx.navigateTo({

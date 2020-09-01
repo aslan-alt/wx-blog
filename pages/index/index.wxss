@@ -7,4 +7,20 @@ view{
   justify-content: center;
   padding: 20px 0;
 }
-
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  padding: 50px 16px;
+ 
+}
+.statement{
+  font-size: 26px;
+  
+  margin-bottom: 10px;
+}
+.statementTitle{
+  text-align: center;
+}
+.statementText{
+  font-size: 16px;
+}
